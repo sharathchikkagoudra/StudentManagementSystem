@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Marks Management</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+</head>
+
+<body>
+
+<!-- Navbar -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 py-3">
+
+    <a class="navbar-brand fw-bold fs-3"
+       href="#">
+
+        Student Management System
+
+    </a>
+
+    <div class="navbar-nav ms-auto">
+		<a class="nav-link active"
+		   href="index.html">
+
+		   Dashboard
+
+		</a>
+		
+        <a class="nav-link active"
+           href="students.html">
+
+           Students
+
+        </a>
+		
+		<a class="nav-link active"
+		   href="departments.html">
+
+		   Departments
+
+		</a>
+
+        <a class="nav-link active"
+           href="courses.html">
+
+           Courses
+
+        </a>
+
+        <a class="nav-link active"
+           href="marks.html">
+
+           Marks
+
+        </a>
+		
+		<a class="nav-link active"
+		   href="results.html">
+
+		   Results
+
+		</a>
+
+		<a class="nav-link active"
+		   href="ranklist.html">
+
+		   Rank List
+
+		</a>
+		
+		<a class="nav-link active"
+		   href="failed-students.html">
+
+		   Failed Students
+
+		</a>
+		
+		<div class="ms-3">
+
+		    <button class="btn btn-danger"
+
+		            onclick="logout()">
+
+		        Logout
+
+		    </button>
+
+		</div>
+    </div>
+
+</nav>
+
+<div class="container py-5">
+
+    <!-- Heading -->
+
+    <div class="text-center mb-5">
+
+        <h1 class="fw-bold">
+
+            Marks Management
+
+        </h1>
+
+        <p class="text-muted">
+
+            Add and manage student marks
+
+        </p>
+
+    </div>
+
+    <!-- Add Marks Form -->
+
+    <div class="card shadow-lg border-0 rounded-4 mb-5">
+
+        <div class="card-body p-5">
+
+            <h3 class="text-primary fw-bold mb-4">
+
+                Add Marks
+
+            </h3>
+
+            <form id="marksForm">
+
+                <div class="row g-4">
+
+					<!-- Student USN -->
+
+					<div class="col-md-4 position-relative">
+
+					    <label class="form-label fw-semibold">
+
+					        Student USN
+
+					    </label>
+
+					    <input type="text"
+					           id="studentUsn"
+					           class="form-control form-control-lg"
+					           placeholder="Search Student USN"
+					           autocomplete="off"
+					           required>
+
+					    <!-- Suggestions -->
+
+					    <div id="usnSuggestions"
+					         class="list-group position-absolute w-100 shadow"
+					         style="z-index: 1000;">
+
+					    </div>
+
+					</div>
+                    <!-- Course -->
+
+                    <div class="col-md-4">
+
+                        <label class="form-label fw-semibold">
+
+                            Course
+
+                        </label>
+
+                        <select id="courseId"
+                                class="form-select form-select-lg"
+                                required>
+
+                            <option value="">
+
+                                Select Course
+
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <!-- Marks -->
+
+                    <div class="col-md-4">
+
+                        <label class="form-label fw-semibold">
+
+                            Marks Obtained
+
+                        </label>
+
+                        <input type="number"
+                               id="marksObtained"
+                               class="form-control form-control-lg"
+                               placeholder="Enter marks"
+                               required>
+
+                    </div>
+
+                </div>
+
+                <div class="mt-4">
+
+                    <button type="submit"
+                            id="submitButton"
+                            class="btn btn-primary btn-lg px-5">
+
+                        Add Marks
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <!-- Marks Table -->
+
+    <div class="card shadow-lg border-0 rounded-4">
+
+        <div class="card-body p-4">
+
+            <h3 class="fw-bold mb-4">
+
+                Marks List
+
+            </h3>
+
+            <div class="table-responsive">
+
+                <table class="table table-hover align-middle">
+
+                    <thead class="table-dark">
+
+						<tr>
+
+						    <th>USN</th>
+						    <th>Student</th>
+						    <th>Course</th>
+						    <th>Marks</th>
+						    <th>Grade</th>
+						    <th>Result</th>
+						    <th>Actions</th>
+
+						</tr>
+
+                    </thead>
+
+                    <tbody id="marksTableBody">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<script src="js/auth.js"></script>
+<script src="js/config.js"></script>
+<script src="js/marks.js"></script>
+
+</body>
+</html>
